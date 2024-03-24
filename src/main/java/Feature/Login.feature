@@ -1,9 +1,11 @@
 Feature: Login feature
 
-  Scenario: User completes a successful login
+  Background: Homepage navigation
     Given I navigate to the lidl.de login page
-    When I click on the login button
-    And I submit my email address
+
+  Scenario: User completes a successful login
+    Given I click on the login button
+    When I submit my email address
     And I submit my account password
     Then I should be redirected to My Lidl Account
 

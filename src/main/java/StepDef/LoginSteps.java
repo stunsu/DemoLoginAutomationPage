@@ -20,13 +20,13 @@ public class LoginSteps extends TestBase {
         homePageCockieConsent.checkHomepage(driver);
     }
 
-    @When("I click on the login button")
+    @Given("I click on the login button")
     public void iClickOnTheLoginButton() {
         Homepage homepage = new Homepage();
         homepage.clickOnLoginButton(driver);
     }
 
-    @And("I submit my email address")
+    @When("I submit my email address")
     public void iSubmitMyEmailAddress() {
         LoginEmailPage loginEmailPage = new LoginEmailPage();
         loginEmailPage.insertEmailAddressOrNumber(driver);
