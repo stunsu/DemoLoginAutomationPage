@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="23.134" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login feature" name="User completes a successful login" time="22.839">
+<system-out><![CDATA[
+Given I navigate to the lidl.de login page..................................passed
+When I click on the login button............................................passed
+And I submit my email address...............................................passed
+And I submit my account password............................................passed
+Then I should be redirected to My Lidl Account..............................passed
+]]></system-out>
+</testcase>
+</testsuite>
