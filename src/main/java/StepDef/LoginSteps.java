@@ -29,8 +29,8 @@ public class LoginSteps extends TestBase {
     @When("I submit my email address")
     public void iSubmitMyEmailAddress() {
         LoginEmailPage loginEmailPage = new LoginEmailPage();
-        loginEmailPage.insertEmailAddressOrNumber(driver);
-        loginEmailPage.submitEmail(driver);
+        loginEmailPage.insertEmailAddress(driver);
+        loginEmailPage.submitEmailOrNumber(driver);
 
 
     }
@@ -54,7 +54,7 @@ public class LoginSteps extends TestBase {
         LoginEmailPage loginEmailPage = new LoginEmailPage();
         loginEmailPage.insertWrongEmailAddressOrNumber(driver, email);
         //now a click to the submit email button needs to be made
-        loginEmailPage.submitEmail(driver);
+        loginEmailPage.submitEmailOrNumber(driver);
     }
 
     @Then("I should see an {string} indicating invalid email")
@@ -63,6 +63,22 @@ public class LoginSteps extends TestBase {
         loginEmailPage.checkEmailErrorMessaging(driver, errorMessage);
     }
 
+    @When("I submit my phone number")
+    public void i_submit_my_phone_number() {
+        LoginEmailPage loginEmailPage = new LoginEmailPage();
+        loginEmailPage.insertPhoneNumber(driver);
+        loginEmailPage.submitEmailOrNumber(driver);
+        loginEmailPage.submitEmailOrNumber(driver);
+    }
+
+    @When("I submit a wrong {string}")
+    public void i_submit_a_wrong(String string) {
+
+    }
+    @Then("I should see an {string} indicating invalid telephone number")
+    public void i_should_see_an_indicating_invalid_telephone_number(String string) {
+
+    }
     @And("I submit a wrong password")
     public void iSubmitAWrongPassword() {
     }

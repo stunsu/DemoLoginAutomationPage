@@ -10,13 +10,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginEmailPage {
-    public static void insertEmailAddressOrNumber(WebDriver driver) {
+    public static void insertEmailAddress(WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#field_EmailOrPhone")));
         WebElement emailBox = driver.findElement(By.cssSelector("#field_EmailOrPhone"));
         emailBox.sendKeys("sorin.tunsu@yahoo.com");
     }
-    public static void submitEmail(WebDriver driver){
+    public static void submitEmailOrNumber(WebDriver driver){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#button_btn_submit_email")));
         WebElement submitEmailButton = driver.findElement(By.cssSelector("#button_btn_submit_email"));
         submitEmailButton.click();
         }
@@ -37,6 +39,12 @@ public class LoginEmailPage {
         Assert.assertEquals(errorMessage ,txt);
     }
 
+    public static void insertPhoneNumber(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#field_EmailOrPhone")));
+        WebElement emailBox = driver.findElement(By.cssSelector("#field_EmailOrPhone"));
+        emailBox.sendKeys("+40730688901");
+    }
 
     }
 
