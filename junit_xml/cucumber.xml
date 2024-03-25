@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="14.425" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Login feature" name="User completes a successful login" time="14.19">
+<testsuite name="Cucumber" time="18.177" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="Login feature" name="Unsuccessful Login - Incorrect Email - Example #1.1" time="9.744">
 <system-out><![CDATA[
 Given I navigate to the lidl.de login page..................................passed
 Given I click on the login button...........................................passed
-When I submit my email address..............................................passed
-And I submit my account password............................................passed
-Then I should be redirected to My Lidl Account..............................passed
+When I submit a wrong "blabla123@yahoo.co" address..........................passed
+Then I should see an "Diese E-Mail-Adresse gehört zu keinem Lidl Konto. Versuche es erneut oder erstelle ein Konto." indicating invalid email.passed
+]]></system-out>
+</testcase>
+<testcase classname="Login feature" name="Unsuccessful Login - Incorrect Email - Example #1.2" time="8.167">
+<system-out><![CDATA[
+Given I navigate to the lidl.de login page..................................passed
+Given I click on the login button...........................................passed
+When I submit a wrong "xyz.yahoo.com" address...............................passed
+Then I should see an "E-Mail oder Handynummer sind erforderlich." indicating invalid email.passed
 ]]></system-out>
 </testcase>
 </testsuite>

@@ -48,20 +48,19 @@ public class LoginSteps extends TestBase {
         myAccountPage.checkMyAccountPage(driver);
     }
 
-    @Given("I am on the lidl.de login page")
-    public void iAmOnTheLidlDeLoginPage() {
+
+    @When("I submit a wrong {string} address")
+    public void iSubmitAWrongEmailAddress(String email) {
+        LoginEmailPage loginEmailPage = new LoginEmailPage();
+        loginEmailPage.insertWrongEmailAddressOrNumber(driver, email);
+        //now a click to the submit email button needs to be made
+        loginEmailPage.submitEmail(driver);
     }
 
-    @And("I submit a wrong email address")
-    public void iSubmitAWrongEmailAddress() {
-    }
-
-    @Then("I should see an error message indicating invalid email")
-    public void iShouldSeeAnErrorMessageIndicatingInvalidEmail() {
-    }
-
-    @And("I should remain on the login page")
-    public void iShouldRemainOnTheLoginPage() {
+    @Then("I should see an {string} indicating invalid email")
+    public void iShouldSeeAnErrorMessageIndicatingInvalidEmail(String errorMessage) {
+        LoginEmailPage loginEmailPage = new LoginEmailPage();
+        loginEmailPage.checkEmailErrorMessaging(driver, errorMessage);
     }
 
     @And("I submit a wrong password")

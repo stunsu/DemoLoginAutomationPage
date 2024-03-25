@@ -1,5 +1,6 @@
 package Pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +20,23 @@ public class LoginEmailPage {
         WebElement submitEmailButton = driver.findElement(By.cssSelector("#button_btn_submit_email"));
         submitEmailButton.click();
         }
+
+    public static void insertWrongEmailAddressOrNumber(WebDriver driver, String email) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#field_EmailOrPhone")));
+        WebElement emailBox = driver.findElement(By.cssSelector("#field_EmailOrPhone"));
+        emailBox.sendKeys(email);
+    }
+
+    public static void checkEmailErrorMessaging(WebDriver driver, String errorMessage) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error_EmailOrPhone")));
+        WebElement emailErrorMessagign = driver.findElement(By.cssSelector(".error_EmailOrPhone"));
+        String txt = emailErrorMessagign.getText();
+        System.out.println("Wrong email error msg: " +txt);
+        Assert.assertEquals(errorMessage ,txt);
+    }
+
 
     }
 
