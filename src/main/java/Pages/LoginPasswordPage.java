@@ -39,9 +39,9 @@ public class LoginPasswordPage {
     }
 
     public static void clickForgotPassword(WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"login-form\"]/div/section/div/div/div[3]/div/div[1]/div[3]/a")));
-        WebElement forgotPasswordCTA = driver.findElement(By.xpath("//*[@id=\"login-form\"]/div/section/div/div/div[3]/div/div[1]/div[3]/a#field_Password"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/form[1]/div/section/div/div/div[3]/div/div[1]/div[3]/a")));
+        WebElement forgotPasswordCTA = driver.findElement(By.xpath("/html/body/div[1]/form[1]/div/section/div/div/div[3]/div/div[1]/div[3]/a"));
         forgotPasswordCTA.click();
     }
 

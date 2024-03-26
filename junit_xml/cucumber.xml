@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="16.867" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="Login feature" name="Unsuccessful Login - Incorrect Password - Example #1.1" time="16.613">
-<failure/>
+<testsuite name="Cucumber" time="10.989" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login feature" name="Forgot Password" time="10.772">
 <system-out><![CDATA[
 Given I navigate to the lidl.de login page..................................passed
 Given I click on the login button...........................................passed
 When I submit my email address..............................................passed
-And I submit a password "123456"............................................passed
-Then I should see an "Falsches Passwort. Versuche es erneut oder tippe auf "Passwort vergessen", um es zu ändern." indicating invalid password.undefined
+And I click on Forgot Password link.........................................passed
+Then I should be redirected to the Password reset page......................passed
+And I should be able to select my email to reset the password...............passed
 ]]></system-out>
 </testcase>
 </testsuite>

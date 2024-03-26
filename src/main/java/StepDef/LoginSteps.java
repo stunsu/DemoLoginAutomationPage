@@ -100,16 +100,17 @@ public class LoginSteps extends TestBase {
     public void iClickOnForgotPasswordLink() {
         LoginPasswordPage loginPasswordPage = new LoginPasswordPage();
         loginPasswordPage.clickForgotPassword(driver);
-
     }
-
 
     @Then("I should be redirected to the Password reset page")
     public void iShouldBeRedirectedToThePasswordResetPage() {
+        PasswordResetPage passwordResetPage = new PasswordResetPage();
+        passwordResetPage.checkPasswordResetPage(driver);
     }
 
     @And("I should be able to select my email to reset the password")
     public void iShouldBeAbleToSelectMyEmailToResetThePassword() {
+        PasswordResetPage passwordResetPage = new PasswordResetPage();
+        passwordResetPage.emailConfirmForPasswordReset(driver);
     }
-
 }
