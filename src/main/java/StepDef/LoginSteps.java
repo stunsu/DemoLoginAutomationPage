@@ -26,19 +26,19 @@ public class LoginSteps extends TestBase {
         homepage.clickOnLoginButton(driver);
     }
 
-    @When("I submit my email address")
-    public void iSubmitMyEmailAddress() {
+    @When("I submit my correct email {string}")
+    public void iSubmitMy(String emailAddress) {
         LoginEmailPage loginEmailPage = new LoginEmailPage();
-        loginEmailPage.insertEmailAddress(driver);
+        loginEmailPage.insertEmailAddress(driver, emailAddress);
         loginEmailPage.submitEmailOrNumber(driver);
 
 
     }
 
-    @And("I submit my account password")
-    public void iSubmitMyAccountPassword() {
+    @And("I submit my correct password {string}")
+    public void iSubmitMyAccountPassword(String accountPassword) {
         LoginPasswordPage loginPasswordPage = new LoginPasswordPage();
-        loginPasswordPage.insertPassword(driver);
+        loginPasswordPage.insertPassword(driver, accountPassword);
         loginPasswordPage.submitPassword(driver);
     }
 
@@ -63,10 +63,10 @@ public class LoginSteps extends TestBase {
         loginEmailPage.checkEmailErrorMessaging(driver, errorMessage);
     }
 
-    @When("I submit my phone number")
-    public void i_submit_my_phone_number() {
+    @When("I submit my correct phone {string}")
+    public void i_submit_my_phone_number(String phoneNumber) {
         LoginEmailPage loginEmailPage = new LoginEmailPage();
-        loginEmailPage.insertPhoneNumber(driver);
+        loginEmailPage.insertPhoneNumber(driver, phoneNumber);
         loginEmailPage.submitEmailOrNumber(driver);
         loginEmailPage.submitEmailOrNumber(driver);
     }

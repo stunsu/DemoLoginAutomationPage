@@ -10,11 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPasswordPage {
-    public static void insertPassword(WebDriver driver) {
+    public static void insertPassword(WebDriver driver, String accountPassword) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#field_Password")));
         WebElement emailBox = driver.findElement(By.cssSelector("#field_Password"));
-        emailBox.sendKeys("Mercia321!");
+        emailBox.sendKeys(accountPassword);
     }
 
     public static void submitPassword(WebDriver driver) {
