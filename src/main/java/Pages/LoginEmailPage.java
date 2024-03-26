@@ -23,11 +23,11 @@ public class LoginEmailPage {
         submitEmailButton.click();
         }
 
-    public static void insertWrongEmailAddressOrNumber(WebDriver driver, String email) {
+    public static void insertWrongEmailAddressOrNumber(WebDriver driver, String wrongEmail) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#field_EmailOrPhone")));
         WebElement emailBox = driver.findElement(By.cssSelector("#field_EmailOrPhone"));
-        emailBox.sendKeys(email);
+        emailBox.sendKeys(wrongEmail);
     }
 
     public static void checkEmailErrorMessaging(WebDriver driver, String errorMessage) {
@@ -46,5 +46,20 @@ public class LoginEmailPage {
         emailBox.sendKeys("+40730688901");
     }
 
+    public static void insertWrongPhoneNumber(WebDriver driver, String wrongPhoneNumber) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#field_EmailOrPhone")));
+        WebElement emailBox = driver.findElement(By.cssSelector("#field_EmailOrPhone"));
+        emailBox.sendKeys(wrongPhoneNumber);
     }
+
+    public static void checkPhoneNumberErrorMsg(WebDriver driver, String phoneErrorMessage) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".error_PhoneNumber")));
+        WebElement phoneErrorMsg = driver.findElement(By.cssSelector(".error_PhoneNumber"));
+        String txt = phoneErrorMsg.getText();
+        System.out.println("Wrong phone number error msg: " +txt);
+        Assert.assertEquals(phoneErrorMessage ,txt);
+}
+}
 

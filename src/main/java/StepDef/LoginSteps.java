@@ -50,9 +50,9 @@ public class LoginSteps extends TestBase {
 
 
     @When("I submit a wrong {string} address")
-    public void iSubmitAWrongEmailAddress(String email) {
+    public void iSubmitAWrongEmailAddress(String wrongEmail) {
         LoginEmailPage loginEmailPage = new LoginEmailPage();
-        loginEmailPage.insertWrongEmailAddressOrNumber(driver, email);
+        loginEmailPage.insertWrongEmailAddressOrNumber(driver, wrongEmail);
         //now a click to the submit email button needs to be made
         loginEmailPage.submitEmailOrNumber(driver);
     }
@@ -71,25 +71,38 @@ public class LoginSteps extends TestBase {
         loginEmailPage.submitEmailOrNumber(driver);
     }
 
-    @When("I submit a wrong {string}")
-    public void i_submit_a_wrong(String string) {
-
+    @When("I submit a {string}")
+    public void i_submit_a (String wrongPhoneNumber) {
+        LoginEmailPage loginEmailPage = new LoginEmailPage();
+        loginEmailPage.insertWrongPhoneNumber(driver, wrongPhoneNumber);
+        loginEmailPage.submitEmailOrNumber(driver);
+        loginEmailPage.submitEmailOrNumber(driver);
     }
     @Then("I should see an {string} indicating invalid telephone number")
-    public void i_should_see_an_indicating_invalid_telephone_number(String string) {
-
+    public void i_should_see_an_indicating_invalid_telephone_number(String phoneErrorMessage) {
+        LoginEmailPage loginEmailPage = new LoginEmailPage();
+        loginEmailPage.checkPhoneNumberErrorMsg(driver, phoneErrorMessage);
     }
-    @And("I submit a wrong password")
-    public void iSubmitAWrongPassword() {
+    @And("I submit a password {string}")
+    public void iSubmitAPassword(String wrongPassword) {
+        LoginPasswordPage loginPasswordPage = new LoginPasswordPage();
+        loginPasswordPage.insertWrongPass(driver, wrongPassword);
+        loginPasswordPage.submitPassword(driver);
     }
 
-    @Then("I should see an error message indicating invalid password")
-    public void iShouldSeeAnErrorMessageIndicatingInvalidPassword() {
+    @Then("I should see an {string} indicating invalid password")
+    public void iShouldSeeAnIndicatingInvalidPassword(String passwordErrorMsg) {
+        LoginPasswordPage loginPasswordPage = new LoginPasswordPage();
+        loginPasswordPage.checkPassErrorMsg(driver, passwordErrorMsg);
     }
 
     @And("I click on Forgot Password link")
     public void iClickOnForgotPasswordLink() {
+        LoginPasswordPage loginPasswordPage = new LoginPasswordPage();
+        loginPasswordPage.clickForgotPassword(driver);
+
     }
+
 
     @Then("I should be redirected to the Password reset page")
     public void iShouldBeRedirectedToThePasswordResetPage() {

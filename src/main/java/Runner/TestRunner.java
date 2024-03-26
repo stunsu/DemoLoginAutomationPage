@@ -14,5 +14,3 @@ import org.junit.runner.RunWith;
 public class TestRunner {
 }
 
-//locatorii intr-o clasa separata
-//aceasi functie de insert email address dar cu valori corecte si incorecte in examples. si nu mai duplic fucntia pentru incorrect email
