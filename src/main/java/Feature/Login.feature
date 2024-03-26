@@ -3,16 +3,16 @@ Feature: Login feature
   Background: Homepage navigation
     Given I navigate to the lidl.de login page
 
-#  Scenario Outline: User completes a successful login
-#    Given I click on the login button
-#    When I submit my correct email "<emailAddress>"
-#    And I submit my correct password "<accountPassword>"
-#    Then I should be redirected to My Lidl Account
-#
-#  Examples:
-#    | emailAddress            |  accountPassword  |
-#    | sorin.tunsu@yahoo.com   |  Mercia321!       |
-#
+  Scenario Outline: User completes a successful login
+    Given I click on the login button
+    When I submit my correct email "<emailAddress>"
+    And I submit my correct password "<accountPassword>"
+    Then I should be redirected to My Lidl Account
+
+  Examples:
+    | emailAddress            |  accountPassword  |
+    | sorin.tunsu@yahoo.com   |  Mercia321!       |
+
 #
 #  Scenario Outline: Unsuccessful Login - Incorrect Email
 #
@@ -26,15 +26,15 @@ Feature: Login feature
 #      | xyz.yahoo.com      | E-Mail oder Handynummer sind erforderlich.                                                                |
 #      |                    | E-Mail oder Handynummer sind erforderlich.                                                                |
 #
-   Scenario Outline: User completes a successful login using phone number
-    Given I click on the login button
-    When I submit my correct phone "<phoneNumber>"
-    And I submit my correct password "<accountPassword>"
-    Then I should be redirected to My Lidl Account
-
-     Examples:
-  | phoneNumber   | accountPassword |
-  | +40730688901  | Mercia321!      |
+#   Scenario Outline: User completes a successful login using phone number
+#    Given I click on the login button
+#    When I submit my correct phone "<phoneNumber>"
+#    And I submit my correct password "<accountPassword>"
+#    Then I should be redirected to My Lidl Account
+#
+#     Examples:
+#  | phoneNumber   | accountPassword |
+#  | +40730688901  | Mercia321!      |
 
 #  Scenario Outline: Unsuccessful Login - Incorrect phone number
 #

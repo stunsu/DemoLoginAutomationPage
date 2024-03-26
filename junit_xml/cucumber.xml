@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="11.836" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Login feature" name="User completes a successful login using phone number - Example #1.1" time="11.637">
+<testsuite name="Cucumber" time="16.611" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Login feature" name="User completes a successful login - Example #1.1" time="16.394">
 <system-out><![CDATA[
 Given I navigate to the lidl.de login page..................................passed
 Given I click on the login button...........................................passed
-When I submit my correct phone "+40730688901"...............................passed
+When I submit my correct email "sorin.tunsu@yahoo.com"......................passed
 And I submit my correct password "Mercia321!"...............................passed
 Then I should be redirected to My Lidl Account..............................passed
 ]]></system-out>
